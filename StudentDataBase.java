@@ -15,6 +15,8 @@ public class StudentDataBase
 		Statement stmObj = conObj.createStatement(); //c small S caps
 		//Execute syntax for queries
 		stmObj.execute("create table Srinivas(TravelsName varchar(30) primary key,OwnerName varchar(30) not null)"); //Always remeber syntax closing brackets
+			/*Closing connection and perform task*/
+		conObj.close();
 		//To Execute insert query
 		int i = stmObj.executeUpdate("insert into Srinivas values('srinivasaTravels','Bagam')");
 		//Checking data inserted or not
