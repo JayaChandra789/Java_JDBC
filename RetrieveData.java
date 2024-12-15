@@ -14,18 +14,22 @@ public class RetrieveData
 			//to create statement
 			Statement stmtRef= conRef.createStatement();
 			/*--- toexecute select query -----*/
-			ResultSet result = stmtRef.executeQuery("Select * from student");
+			ResultSet resultRef = stmtRef.executeQuery("Select * from student"); //ResultSet Interface to retrieve data
 			/*---------------------------------------*/
 			/*--- fetching data from resultset -----*/
-			while(result.next())
+			while(resultRef.next())
 			{
 				/*--- fetching data using column index ----*/
-				System.out.println("Student Id : "+result.getString(1));
-				System.out.println("Student Name : "+result.getString(2));
+				System.out.println("Student Id : "+resultRef.getString(1));   // use syntax ref.getString( column index value )
+				System.out.println("Student Name : "+resultRef.getString(2)); // use syntax ref.getInt( column index value )
+				System.out.println("Student Name : "+resultRef.getString(3)); // use syntax ref.getString( column index value )
+				System.out.println("Student Name : "+resultRef.getString(4)); // use syntax ref.getString( column index value )
+				System.out.println("------------------------------------------------");
 				/*--- fetching data using column name ----*/
-				System.out.println("Standard : "+result.getString("standard"));
-				System.out.println("Roll Number : "+result.getInt("roll"));
-				System.out.println("Age : "+result.getInt("age")+" year");
+				System.out.println("Standard : "+resultRef.getString("studentName")); // use syntax ref.getString( column name of table )
+				System.out.println("Roll Number : "+resultRef.getInt("stdId"));		  // use syntax ref.getString( column name of table )
+				System.out.println("Age : "+ resultRef.getInt("StdAge") +" in year"); // use syntax ref.getString( column name of table )
+				System.out.println("Address : "+ resultRef.getString("StdAddress"));  // use syntax ref.getString( column name of table )
 				System.out.println("------------------------------------------------");
 			}
 			//close the connection
